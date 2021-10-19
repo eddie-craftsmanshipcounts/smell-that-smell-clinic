@@ -18,7 +18,7 @@ public class TennisGame1 implements TennisGame
 
 	public void wonPoint(String playerName)
 	{
-		if (playerName == "player1")
+		if (playerName == player1Name)
 			player1Points += 1;
 		else
 			player2Points += 1;
@@ -45,10 +45,10 @@ public class TennisGame1 implements TennisGame
 			}
 		} else if (player1Points >= 4 || player2Points >= 4) {
 			int scoreDifference = player1Points - player2Points;
-			if (scoreDifference == 1) score = "Advantage player1";
-			else if (scoreDifference == -1) score = "Advantage player2";
-			else if (scoreDifference >= 2) score = "Win for player1";
-			else score = "Win for player2";
+			if (scoreDifference == 1) score = "Advantage " + player1Name;
+			else if (scoreDifference == -1) score = "Advantage " + player2Name;
+			else if (scoreDifference >= 2) score = "Win for " + player1Name;
+			else score = "Win for " + player2Name;
 		} else {
 			int playerPoints = 0;
 			for (int player = 1; player < 3; player++) {
