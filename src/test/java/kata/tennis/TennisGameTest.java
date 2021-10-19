@@ -1,5 +1,8 @@
 package kata.tennis;
 
+import kata.tennis.game1.TennisGame1;
+import kata.tennis.game2.TennisGame2;
+import kata.tennis.game3.TennisGame3;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

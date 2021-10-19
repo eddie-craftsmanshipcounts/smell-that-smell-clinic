@@ -1,4 +1,6 @@
-package kata.tennis;
+package kata.tennis.game1;
+
+import kata.tennis.TennisGame;
 
 public class TennisGame1 implements TennisGame
 {

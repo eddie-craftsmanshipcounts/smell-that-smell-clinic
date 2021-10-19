@@ -1,6 +1,9 @@
-package kata.tennis;
+package kata.tennis.game3;
 
-public class TennisGame3 implements TennisGame {
+import kata.tennis.TennisGame;
+
+public class TennisGame3 implements TennisGame
+{
 
 	private int p2;
 	private int p1;
