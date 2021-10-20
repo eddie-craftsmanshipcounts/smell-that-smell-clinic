@@ -3,6 +3,7 @@ package kata.tennis;
 import kata.tennis.game1.TennisGame1;
 import kata.tennis.game2.TennisGame2;
 import kata.tennis.game3.TennisGame3;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,6 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class TennisGameTest
@@ -21,6 +23,20 @@ public class TennisGameTest
 		checkAllScores(
 			new TennisGame1("player1", "player2"),
 			player1Score, player2Score, expectedScore);
+	}
+
+	@Test
+	public void game1RequiresPlayer1Name() throws Exception {
+		assertThrows(IllegalArgumentException.class, () -> {
+			new TennisGame1(null, "player2");
+		});
+	}
+
+	@Test
+	public void game1RequiresPlayer2Name() throws Exception {
+		assertThrows(IllegalArgumentException.class, () -> {
+			new TennisGame1("player1Name", null);
+		});
 	}
 
 	@ParameterizedTest

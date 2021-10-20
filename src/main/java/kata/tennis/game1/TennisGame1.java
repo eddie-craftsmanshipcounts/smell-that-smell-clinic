@@ -12,6 +12,14 @@ public class TennisGame1 implements TennisGame
 
 	public TennisGame1(String player1Name, String player2Name)
 	{
+		if (player1Name == null) {
+			throw new IllegalArgumentException("player1Name is required");
+		}
+
+		if (player2Name == null) {
+			throw new IllegalArgumentException("player2Name is required");
+		}
+
 		this.player1Name = player1Name;
 		this.player2Name = player2Name;
 	}
