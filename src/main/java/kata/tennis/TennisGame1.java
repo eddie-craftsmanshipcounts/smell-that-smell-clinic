@@ -3,30 +3,29 @@ package kata.tennis;
 public class TennisGame1 implements TennisGame
 {
 
-	private int player1Points = 0;
-	private int player2Points = 0;
-	private String player1Name;
-	private String player2Name;
+	private Player player1;
+	private Player player2;
 
 	public TennisGame1(String player1Name, String player2Name)
 	{
-		this.player1Name = player1Name;
-		this.player2Name = player2Name;
+		this.player1 = new Player(player1Name);
+		this.player2 = new Player(player2Name);
 	}
 
 	public void wonPoint(String playerName)
 	{
-		if (playerName == "player1")
-			player1Points += 1;
-		else
-			player2Points += 1;
+		if (playerName == player1.name) {
+			player1.points += 1;
+		}else {
+			player2.points += 1;
+		}
 	}
 
 	public String getScore()
 	{
 		String score = "";
-		if (player1Points == player2Points) {
-			switch (player1Points) {
+		if (player1.points == player2.points) {
+			switch (player1.points) {
 				case 0:
 					score = "Love-All";
 					break;
@@ -41,8 +40,8 @@ public class TennisGame1 implements TennisGame
 					break;
 
 			}
-		} else if (player1Points >= 4 || player2Points >= 4) {
-			int scoreDifference = player1Points - player2Points;
+		} else if (player1.points >= 4 || player2.points >= 4) {
+			int scoreDifference = player1.points - player2.points;
 			if (scoreDifference == 1) score = "Advantage player1";
 			else if (scoreDifference == -1) score = "Advantage player2";
 			else if (scoreDifference >= 2) score = "Win for player1";
@@ -50,10 +49,10 @@ public class TennisGame1 implements TennisGame
 		} else {
 			int playerPoints = 0;
 			for (int player = 1; player < 3; player++) {
-				if (player == 1) playerPoints = player1Points;
+				if (player == 1) playerPoints = player1.points;
 				else {
 					score += "-";
-					playerPoints = player2Points;
+					playerPoints = player2.points;
 				}
 				switch (playerPoints) {
 					case 0:
